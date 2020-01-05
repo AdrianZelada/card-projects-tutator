@@ -1,0 +1,8 @@
+<div class="content-image">
+  <!-- reemplazaremos [hidden] por una directiva de angular que controla las animaciones -->
+  <div [@imageAnimation]="contentCtrl">
+    <ng-content ></ng-content>
+  </div>
+  <!-- reemplazaremos [hidden] por una directiva de angular que controla las animaciones -->
+  <img [@imageAnimation]="imageCtrl" #lImage alt="">
+</div>
