@@ -10,7 +10,7 @@ export class SearchProjectsPipe implements PipeTransform {
     console.log(value)
       console.log(args);
       return value.filter((project: Project) => {
-        return project.title.search(args) !== -1;
+        return project.title.toLowerCase().search(args) !== -1;
       });
   }
 
