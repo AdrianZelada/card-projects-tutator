@@ -1,4 +1,4 @@
-<div class="card p-2 m-3" statusProject [state]="project.state">
+<div class="card p-2 m-3" statusProject [progress]="project.progress">
   <div class="row p-2">
     <div class="col-md-4">
       <image-async [url]="project.imgThumbnail">
@@ -14,8 +14,8 @@
     </div>
     <div class="col-md-8">
       <div class="form-group">
-        <label>Name Project</label>
-        <input type="text" class="form-control" [value]="project.title" readonly>
+        <label>Project Name</label>
+        <input type="text" class="form-control" [value]="project.name" readonly>
       </div>
       <div class="form-group">
         <label>Where Is Implemented</label>
@@ -40,7 +40,7 @@
   </div>
   <div class="row p-2">
     <div class="col-md-4">
-      <b>State Project:</b> {{project.state}}
+      <b>Project Progress:</b> {{project.progress}}
     </div>
     <div class="col-md-8">
       <span class="btn" [ngClass]="{'btn-success': project.status == 'Online', 'btn-secondary': project.status == 'Offline'}"> Network: {{project.status}}</span>

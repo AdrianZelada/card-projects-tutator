@@ -1,6 +1,5 @@
 <div class="content">
   <div class="d-flex justify-content-center">
-    <!--<div class="p-2 bd-highlight w-50"><user-card [user]="user"></user-card></div>-->
     <div class="p-2 bd-highlight w-50">
       <user-card [user]="user$ | async"></user-card>
     </div>
@@ -10,16 +9,4 @@
       <list-projects [projects]="projects$ | async"></list-projects>
     </div>
   </div>
-
 </div>
-
-<!--<image-async [url]="urlImage">-->
-  <!--<div class="thumb-overlay">-->
-    <!--<div class="sk-folding-cube">-->
-      <!--<div class="sk-cube1 sk-cube"></div>-->
-      <!--<div class="sk-cube2 sk-cube"></div>-->
-      <!--<div class="sk-cube4 sk-cube"></div>-->
-      <!--<div class="sk-cube3 sk-cube"></div>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</image-async>-->

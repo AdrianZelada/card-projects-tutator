@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { ListProjectsComponent } from './list-projects/list-projects.component';
@@ -11,8 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatusProjectDirective } from './directives/status-project.directive';
 import { SearchProjectsPipe } from './pipes/search-projects.pipe';
 import { YearPipe } from './pipes/year.pipe';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,8 +28,7 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
-    AppRoutingModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

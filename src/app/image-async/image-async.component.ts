@@ -1,16 +1,23 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+
+/**
+ * Show an animation until you load the image
+ * @example
+ * <image-async [url]="urlImage"></image-async>
+ */
+
 @Component({
-  selector: 'image-async',
+  selector: 'image-async', // tslint:disable-line
   templateUrl: './image-async.component.html',
   styleUrls: ['./image-async.component.scss'],
   animations: [
-    trigger('imageAnimation',[
+    trigger('imageAnimation', [
       state('show-image', style({
-        opacity:'1',
+        opacity: '1',
       })),
       state('hide-image', style({
-        opacity:'0'
+        opacity: '0'
       })),
       transition('show-image <=> hide-image', animate('1000ms ease-in')),
     ])
@@ -18,28 +25,53 @@ import { animate, keyframes, state, style, transition, trigger } from '@angular/
 })
 
 export class ImageAsyncComponent implements OnInit {
-  imageCtrl : string = 'hide-image';
-  contentCtrl : string = 'show-image';
+  /**
+   * State of imageAnimation for image
+   */
+  imageCtrl: string = 'hide-image';
 
-  @Input('url') set url(url:string){
-    if(url){
+  /**
+   * State of imageAnimation for <ng-content></ng-content>
+   */
+  contentCtrl: string = 'show-image';
+
+  /**
+   * Url of image to load
+   * @type {string}
+   * @memberOf ImageAsyncComponent
+   */
+
+  @Input('url') set url(url: string) {
+    if (url) {
       this.loadImage(url);
     }
   }
-  @ViewChild('lImage') lImage : ElementRef;
+
+  /**
+   * Reference to Element Html with id lImage
+   */
+  @ViewChild('lImage') lImage: ElementRef;
 
   constructor() { }
 
   ngOnInit() {
-    this.lImage.nativeElement.onload=()=>{
-      this.imageCtrl='show-image';
-      this.contentCtrl='hide-image';
-    }
+    /**
+     * Assigned Function to lImage the event "onLoad" changes state of imageAnimation
+     */
+    this.lImage.nativeElement.onload = () => {
+      this.imageCtrl = 'show-image';
+      this.contentCtrl = 'hide-image';
+    };
   }
 
-  loadImage(urlImage){
-    this.imageCtrl='hide-image';
-    this.contentCtrl='show-image';
+  /**
+   * Show animation and load Image
+   * @param urlImage
+   */
+
+  loadImage(urlImage) {
+    this.imageCtrl = 'hide-image';
+    this.contentCtrl = 'show-image';
     this.lImage.nativeElement.src = urlImage;
   }
 }
